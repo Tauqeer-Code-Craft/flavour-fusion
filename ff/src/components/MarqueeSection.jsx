@@ -23,12 +23,12 @@ const Marquee = ({ category, backgroundColor, direction }) => {
   }, [category]);
 
   return (
-    <section className={`marquee ${direction}`} style={{ backgroundColor }}>
-      <h2>{category} Recipes</h2>
+<section className={`marquee ${direction} ${category === 'Italian' ? 'middle-section' : ''}`} style={{ backgroundColor }}>
+      <h2 className="text-center text-lg font-bold p-4" >{category} Recipes</h2>
       <div className="marquee-content">
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <div key={recipe.id} className="marquee-item card">
+            <div key={recipe.id} className="marquee-item">
               <img src={recipe.image ? recipe.image : 'https://via.placeholder.com/100x75'} alt={recipe.title} />
               <p className="recipe-title">{recipe.title}</p>
             </div>
@@ -42,3 +42,4 @@ const Marquee = ({ category, backgroundColor, direction }) => {
 };
 
 export default Marquee;
+
