@@ -293,28 +293,24 @@ p {
   flex: 2;
 }
 
-/* General Marquee Styles */
 .marquee {
-  padding: 20px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  padding: 10px;
 }
 
 .marquee-content {
   display: flex;
-  gap: 20px;
+  flex-wrap: nowrap;
   animation: marquee 15s linear infinite;
 }
 
-@keyframes marquee-left-right {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+.marquee.left-to-right {
+  animation-direction: normal;
 }
 
-@keyframes marquee-right-left {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+.marquee.right-to-left {
+  animation-direction: reverse;
 }
 
 /* Alternate marquee direction based on prop */
@@ -326,36 +322,78 @@ p {
   animation-name: marquee-right-left;
 }
 
-/* Card Styling */
-.marquee-item.card {
+.marquee-item {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 220px;
-  padding: 15px;
-  background-color: #fff;
+  margin: 0 10px;
+  width: 200px; /* Adjust width as needed */
+  height: 300px; /* Adjust height as needed */
+  background-color: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
 }
 
-.marquee-item.card:hover {
-  transform: scale(1.05);
-}
-
-.recipe-title {
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  white-space: normal;
-  word-wrap: break-word;
-  margin-top: 10px;
-}
-
-/* Image in Card */
 .marquee-item img {
-  border-radius: 8px;
   width: 100%;
-  height: auto;
+  height: 60%;
+  object-fit: cover;
 }
+
+.marquee-item .recipe-title {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  overflow-wrap: break-word;
+}
+
+.middle-section h2 {
+  color: #0E3E9C; /* Change to the desired color for the middle section */
+}
+  
+  @keyframes marquee-left-right {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes marquee-right-left {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .language-switcher {
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  .language-switcher select {
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .bx {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
