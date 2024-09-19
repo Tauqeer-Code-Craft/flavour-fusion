@@ -41,7 +41,7 @@ function App() {
       <ContainerSection />
       <div>
       <Marquee category="Indian" backgroundColor="#0E3E9C" direction="left-right" />
-      <Marquee category="Chinese" textColor="black" backgroundColor="white" direction="right-left" />
+      <Marquee category="Italian" textColor="black" backgroundColor="white" direction="right-left" />
       <Marquee category="Middle Eastern" backgroundColor="#0E3E9C" direction="left-right" />
     </div>
 
